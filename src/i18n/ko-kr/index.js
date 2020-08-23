@@ -3,11 +3,11 @@
 
 export default {
   updateAvailable: 'A new version is avaliable, please refresh.',
-  matrixName: '호드리구 수자 삼파이오',
+  matrixName: '호드리구 소우사 삼파이우',
   myName: {
     first: '호드리구',
-    middle: '수자',
-    last: '삼파이오'
+    middle: '소우사',
+    last: '삼파이우'
   },
   myTitle: '프로그래머 및 컴퓨터 과학자',
   menu: {
