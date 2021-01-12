@@ -51,7 +51,7 @@ export default {
       list: [
         {
           title: 'Vue.js',
-          img: '../statics/logos/vue.png',
+          img: 'logos/vue.png',
           level: 4.5,
           heart: 'las la-heart',
           link: 'https://vuejs.org/',
@@ -59,7 +59,7 @@ export default {
         },
         {
           title: 'Quasar',
-          img: '../statics/logos/quasar.png',
+          img: 'logos/quasar.png',
           level: 4.5,
           heart: 'las la-heart',
           link: 'https://quasar.dev/',
@@ -67,7 +67,7 @@ export default {
         },
         {
           title: 'Node.js',
-          img: '../statics/logos/nodejs.png',
+          img: 'logos/nodejs.png',
           level: 4.5,
           heart: 'las la-heart',
           link: 'https://nodejs.org/',
@@ -75,7 +75,7 @@ export default {
         },
         {
           title: 'Mongo DB',
-          img: '../statics/logos/mongodb.png',
+          img: 'logos/mongodb.png',
           level: 4.5,
           heart: 'las la-heart',
           link: 'https://www.mongodb.com/',
@@ -83,7 +83,7 @@ export default {
         },
         {
           title: 'React',
-          img: '../statics/logos/react.png',
+          img: 'logos/react.png',
           level: 3.5,
           heart: '',
           link: 'https://reactjs.org/',
@@ -99,7 +99,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -107,7 +107,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -115,7 +115,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -123,7 +123,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -131,7 +131,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -139,7 +139,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -147,7 +147,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -155,7 +155,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
@@ -163,7 +163,7 @@ export default {
         },
         {
           title: 'Under Construction',
-          img: '../statics/logos/construction.jpeg',
+          img: 'logos/construction.jpeg',
           level: 0.0,
           heart: 'las la-exclamation',
           link: '',
