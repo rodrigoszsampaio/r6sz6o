@@ -2,16 +2,16 @@
   "version": 2,
   "builds": [{ "src": "package.json", "use": "@vercel/static-build" }],
   "routes": [
-    { "source": "^/js/(.*)", "destination": "/pwa/js/$1" },
-    { "source": "^/css/(.*)", "destination": "/pwa/css/$1" },
-    { "source": "^/fonts/(.*)", "destination": "/pwa/fonts/$1" },
-    { "source": "^/img/(.*)", "destination": "/pwa/img/$1" },
-    { "source": "^/icons/(.*)", "destination": "/pwa/icons/$1" },
-    { "source": "^/logos/(.*)", "destination": "/pwa/logos/$1" },
-    { "source": "/robots.txt", "destination": "/pwa/robots.txt" },
-    { "source": "/service-worker.js", "destination": "/pwa/service-worker.js", "headers": { "Cache-Control": "no-cache" } },
-    { "source": "/manifest.json", "destination": "/pwa/manifest.json", "headers": { "Content-Type": "application/json; charset=utf-8" } },
-    { "source": "/(.+)", "destination": "/pwa/$1" },
-    { "source": "(.*)", "destination": "/pwa/index.html" }
+    { "src": "^/js/(.*)", "dest": "/pwa/js/$1" },
+    { "src": "^/css/(.*)", "dest": "/pwa/css/$1" },
+    { "src": "^/fonts/(.*)", "dest": "/pwa/fonts/$1" },
+    { "src": "^/img/(.*)", "dest": "/pwa/img/$1" },
+    { "src": "^/icons/(.*)", "dest": "/pwa/icons/$1" },
+    { "src": "^/logos/(.*)", "dest": "/pwa/logos/$1" },
+    { "src": "/robots.txt", "dest": "/pwa/robots.txt" },
+    { "src": "/service-worker.js", "dest": "/pwa/service-worker.js", "headers": { "Cache-Control": "no-cache" } },
+    { "src": "/manifest.json", "dest": "/pwa/manifest.json", "headers": { "Content-Type": "application/json; charset=utf-8" } },
+    { "src": "/(.+)", "dest": "/pwa/$1" },
+    { "src": "(.*)", "dest": "/pwa/index.html" }
   ]
 }
