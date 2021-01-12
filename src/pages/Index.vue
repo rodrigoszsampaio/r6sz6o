@@ -7,11 +7,20 @@
     :background="this.$q.dark.isActive ? 'rgba(0, 0, 0, 0.05)': 'rgba(255, 255, 255, 0.05)'"
     :foreground="this.$q.dark.isActive ? '#FFC107': '#000'"
   />
+  <!-- <Doom
+    :offset="122"
+    :text="$t('myTitle')"
+    :chars="$t('matrixName')"
+    :background="this.$q.dark.isActive ? 'rgba(0, 0, 0, 0.05)': 'rgba(255, 255, 255, 0.05)'"
+    :foreground="this.$q.dark.isActive ? '#FFC107': '#000'"
+  /> -->
+
 </div>
 </template>
 
 <script>
 import Matrix from 'components/Matrix.vue'
+// import Doom from 'components/Doom.vue'
 
 export default {
   name: 'PageIndex',
@@ -22,6 +31,7 @@ export default {
   },
   components: {
     Matrix
+    // Doom
   },
   // created () {
   //   setInterval(this.getNow, 1000)
