@@ -20,7 +20,7 @@
 
 <script>
 import Matrix from 'components/Matrix.vue'
-// import Doom from 'components/Doom.vue'
+// import Doom from 'components/Doom.vue' // test
 
 export default {
   name: 'PageIndex',
