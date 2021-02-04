@@ -24,6 +24,7 @@ function build(opts = {}) {
   const fastifyStatic = require('fastify-static')
   app.register(fastifyStatic, { root: path.join(__dirname, 'public'), prefix: '/' })
   app.get('/', { schema: { tags: ['X-HIDDEN'] } }, (req, reply) => reply.sendFile('index.html'))
+  app.get('/favicon.ico', { schema: { tags: ['X-HIDDEN'] } }, (req, reply) => reply.sendFile('favicon.ico'))
 
 
   // studies
