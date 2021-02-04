@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="connect-src * 'unsafe-inline';"
+    />
+    <script src="../../node_modules/socket.io/client-dist/socket.io.min.js"></script>
+    <script>
+      const socket = io('ws://localhost:3000/logs')
+      socket.on('log', (data) => document.getElementById("incomingMsgOutput").value += data + "\r\n")
+
+      function onDisconnectClick() {
+        socket.close()
+      }
+    </script>
+    <style>
+      textarea {
+        width: 1280px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <textarea
+      id="incomingMsgOutput"
+      rows="50"
+      cols="100"
+      disabled="disabled"
+    ></textarea>
+  </body>
+</html>

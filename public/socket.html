@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="connect-src * 'unsafe-inline';"/>
+    <script src="socket.io.min.js"></script>
+    <script>
+      const socket = io('ws://localhost:3000/logs', {
+        auth: {
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDAzMzdlY2UxZmYwNDkwMjIzYzVmMDkiLCJlbWFpbCI6ImZhc3RpZnkiLCJwYXNzd29yZCI6IjUxYmQ4YjcxMDBmOThmMGQyODA2NGM4OGRlMWIzZjg1NDUyODY0ZTc3ZGQxYTNlZjU2NWEwMDBiYWRhNzFmMTgiLCJpYXQiOjE2MTI0NTE2MDYsImV4cCI6MTYxMjUzODAwNn0.LOFRYg_LnRCq4brKT2WTKd9JZGWkNpaAfthET5ka7Fw"
+        }
+      })
+      socket.on('log', (data) => document.getElementById("incomingMsgOutput").value += data + "\r\n")
+
+      function onDisconnectClick() {
+        socket.close()
+      }
+    </script>
+    <style>
+      textarea {
+        width: 1280px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <textarea
+      id="incomingMsgOutput"
+      rows="50"
+      cols="100"
+      disabled="disabled"
+    ></textarea>
+  </body>
+</html>
