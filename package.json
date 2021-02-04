@@ -4,7 +4,7 @@
   "description": "Fastify Api Boilerplate",
   "main": "server.js",
   "scripts": {
-    "start": "node .",
+    "start": "npm install && node .",
     "dev": "nodemon .",
     "test": "tap --reporter=specy",
     "docs:dev": "vuepress dev docs",
