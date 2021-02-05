@@ -11,6 +11,7 @@ const fastify = require('./app')(
 async function start () {
   try {
     await fastify.ready()
+    fastify.log.info(`${JSON.stringify(fastify.config)}`)
     await fastify.listen(process.env.PORT || 3000)
     fastify.log.info(`${arguments.callee.name} :: server ready and successfully booted!`, fastify.config)
     fastify.log.debug(fastify.config)
