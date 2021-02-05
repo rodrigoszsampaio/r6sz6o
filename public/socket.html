@@ -5,9 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="connect-src * 'unsafe-inline';"/>
     <script src="socket.io.min.js"></script>
     <script>
-      const socket = io('ws://localhost:3000/logs', {
+      function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      const token = getParameterByName('token')
+      const socket = io('/logs', {
         auth: {
-          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDAzMzdlY2UxZmYwNDkwMjIzYzVmMDkiLCJlbWFpbCI6ImZhc3RpZnkiLCJwYXNzd29yZCI6IjUxYmQ4YjcxMDBmOThmMGQyODA2NGM4OGRlMWIzZjg1NDUyODY0ZTc3ZGQxYTNlZjU2NWEwMDBiYWRhNzFmMTgiLCJpYXQiOjE2MTI0NTE2MDYsImV4cCI6MTYxMjUzODAwNn0.LOFRYg_LnRCq4brKT2WTKd9JZGWkNpaAfthET5ka7Fw"
+          token: token
         }
       })
       socket.on('log', (data) => document.getElementById("incomingMsgOutput").value += data + "\r\n")
