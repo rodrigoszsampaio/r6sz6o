@@ -3,8 +3,9 @@ const fp = require('fastify-plugin')
 async function enviroment (fastify) {
   const schema = {
     type: 'object',
-    required: [ 'MONGODB_URL', 'JWT_SECRET', 'TOKEN_EXPIRES_IN' ],
+    required: [ 'MONGODB_URL', 'JWT_SECRET', 'TOKEN_EXPIRES_IN', 'PORT' ],
     properties: {
+      PORT: { type: 'number' },
       MONGODB_URL: { type: 'string' },
       JWT_SECRET: { type: 'string' },
       TOKEN_EXPIRES_IN: { type: 'string' },
