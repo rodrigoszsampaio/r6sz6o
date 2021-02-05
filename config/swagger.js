@@ -11,7 +11,6 @@ module.exports = {
       url: 'https://fastify.io',
       description: 'Find more info here',
     },
-    host: 'localhost:3000',
     consumes: ['application/json'],
     produces: ['application/json'],
     tags: [
@@ -30,5 +29,5 @@ module.exports = {
     }
   },
   routePrefix: '/swagger',
-  exposeRoute: true // isDev()
+  exposeRoute: isDev()
 }

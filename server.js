@@ -11,7 +11,10 @@ const fastify = require('./app')(
 async function start () {
   try {
     await fastify.ready()
-    await fastify.listen(fastify.config.PORT || 3000, '0.0.0.0')
+
+    if (fastify.isDev()) await fastify.listen(fastify.config.PORT)
+    else await fastify.listen(fastify.config.PORT, '0.0.0.0')
+
     fastify.log.info(`${arguments.callee.name} :: server ready and successfully booted!`, fastify.config)
     fastify.log.debug(fastify.config)
     return fastify

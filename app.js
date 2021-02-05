@@ -3,6 +3,7 @@ const path = require('path')
 
 function build(opts = {}) {
   const app = fastify(opts)
+  app.decorate('isDev', (string) => [undefined, 'local', 'development'].includes(process.env.NODE_ENV))
   app.register(require('fastify-swagger'), require('./config/swagger'));
 
   app.register(require('fastify-cors'))
@@ -25,7 +26,6 @@ function build(opts = {}) {
   app.register(fastifyStatic, { root: path.join(__dirname, 'public'), prefix: '/' })
   app.get('/', { schema: { tags: ['X-HIDDEN'] } }, (req, reply) => reply.sendFile('index.html'))
   app.get('/favicon.ico', { schema: { tags: ['X-HIDDEN'] } }, (req, reply) => reply.sendFile('favicon.ico'))
-
 
   // studies
   app.get('/logs', { schema: { tags: ['X-HIDDEN'] } }, (req, reply) => reply.sendFile('socket.html'))
