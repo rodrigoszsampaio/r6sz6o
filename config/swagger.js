@@ -30,5 +30,5 @@ module.exports = {
     }
   },
   routePrefix: '/swagger',
-  exposeRoute: isDev(),
+  exposeRoute: true // isDev()
 }
