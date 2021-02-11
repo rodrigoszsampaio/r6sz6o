@@ -23,7 +23,7 @@ async function getUsersHandler (request, reply) {
     const limit = request.query.limit
     const page = request.query.page
     const response = await this.getUsers(query, limit, page)
-    request.log.info(`${arguments.callee.name} replied`)
+    request.log.info(`${arguments.callee.name} replied to user ${request.user.email}`)
     request.log.debug(response[0])
     reply.status(200).send(response[0])
   } catch (error) {
@@ -37,7 +37,7 @@ async function postUsersHandler (request, reply) {
   try {
     request.body.password = this.getHash(request.body.password)
     const response = await this.postUsers(request.body)
-    request.log.info(`${arguments.callee.name} replied`)
+    request.log.info(`${arguments.callee.name} replied to user ${request.user.email}`)
     reply.status(201).send({ userId: response.insertedId })
   } catch (error) {
     request.log.error(`${arguments.callee.name} :: error = ${error}`)
@@ -53,7 +53,7 @@ async function getByIdUsersHandler (request, reply) {
   try {
     const _id = this.mongo.ObjectId(request.params.id)
     const response = await this.getByIdUsers(_id)
-    request.log.info(`${arguments.callee.name} replied`)
+    request.log.info(`${arguments.callee.name} replied to user ${request.user.email}`)
     request.log.debug(response)
     response ? reply.send(response) : reply.send({})
   } catch (error) {
@@ -66,7 +66,7 @@ async function deleteUsersHandler (request, reply) {
   try {
     const _id = this.mongo.ObjectId(request.params.id)
     const user = await this.deleteUsers(_id)
-    request.log.info(`${arguments.callee.name} replied`)
+    request.log.info(`${arguments.callee.name} replied to user ${request.user.email}`)
     request.log.debug(user.deletedCount)
     reply.status(204)
   } catch (error) {
@@ -80,7 +80,7 @@ async function putUsersHandler (request, reply) {
     const _id = this.mongo.ObjectId(request.params.id)
     request.body.password = this.getHash(request.body.password)
     const response = await this.putUsers(_id, request.body)
-    request.log.info(`${arguments.callee.name} replied`)
+    request.log.info(`${arguments.callee.name} replied to user ${request.user.email}`)
     request.log.debug(response)
     response ? reply.send({ userId: request.params.id }) : reply.send({})
   } catch (error) {
