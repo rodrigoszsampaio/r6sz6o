@@ -1,5 +1,6 @@
 .DS_Store
 .thumbs.db
+.nyc_output
 node_modules
 
 # Log files

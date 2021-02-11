@@ -6,10 +6,10 @@ t.test('USER', async t => {
   const app = build()
   t.tearDown(() => app.close())
 
-  t.test('/v1/login', async t => {
+  t.test('/v1/auth', async t => {
     let res = await app.inject({
       method: 'POST',
-      url: '/v1/login',
+      url: '/v1/auth',
       headers: { 'Content-type': 'application/json' },
       payload: JSON.stringify({ email: '', password: '' })
     })
@@ -17,17 +17,17 @@ t.test('USER', async t => {
 
     res = await app.inject({
       method: 'POST',
-      url: '/v1/login',
+      url: '/v1/auth',
       headers: { 'Content-type': 'application/json' },
       payload: JSON.stringify({ email: 'fastify', password: '123' })
     })
     t.equal(res.statusCode, 401, 'Unauthorized returns a status code of 401 wrong password')
   })
 
-  t.test('/v1/login token', async t => {
+  t.test('/v1/auth token', async t => {
     const res = await app.inject({
       method: 'POST',
-      url: '/v1/login',
+      url: '/v1/auth',
       headers: { 'Content-type': 'application/json' },
       payload: JSON.stringify({ email: 'fastify', password: 'f4st1fy' })
     })
