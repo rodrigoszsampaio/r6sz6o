@@ -2,8 +2,8 @@ const S = require('fluent-json-schema')
 
 const userBody = S.object()
   .additionalProperties(false)
-  .prop('email', S.string().required())
-  .prop('password', S.string().required())
+  .prop('email', S.string().default('fastify').required())
+  .prop('password', S.string().default('f4st1fy').required())
 
 const defaultError = S.object()
   .additionalProperties(false)
