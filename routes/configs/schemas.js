@@ -1,13 +1,26 @@
 const S = require('fluent-json-schema')
 
+const SERVICES = {
+  ASSISTANT: 'assistant',
+  DISCOVERY: 'discovery',
+}
+
+const assistantPropertiesBody = S.object()
+  .additionalProperties(false)
+  .prop('default', S.boolean().required())
+  .prop('version', S.string().required())
+  .prop('apikey', S.string().required())
+  .prop('serviceUrl', S.string().required())
+  .prop('assistantId', S.string().required())
+
 const objectIdParamSchema = S.object()
   .additionalProperties(false)
   .prop('id', S.string().raw({ pattern: '^[0-9a-fA-F]{24}' }))
 
 const configBody = S.object()
   .additionalProperties(false)
-  .prop('serviceName', S.string().required())
-  .prop('properties', S.array().items(S.object()).required())
+  .prop('serviceName', S.string().enum(Object.values(SERVICES)).default(SERVICES.ASSISTANT).required())
+  .prop('properties', S.array().items(S.anyOf([assistantPropertiesBody])).required())
 
 const postConfigs200 = S.object()
   .additionalProperties(false)
@@ -16,8 +29,8 @@ const postConfigs200 = S.object()
 const getConfigs200 = S.object()
   .additionalProperties(false)
   .prop('_id', S.string().raw({ pattern: '^[0-9a-fA-F]{24}' }))
-  .prop('serviceName', S.string().required())
-  .prop('properties', S.array().required().items(S.object()))
+  .prop('serviceName', S.string().enum(Object.values(SERVICES)).default(SERVICES.ASSISTANT).required())
+  .prop('properties', S.array().required().items(S.anyOf([assistantPropertiesBody])))
 
 const defaultError = S.object()
   .additionalProperties(false)
