@@ -4,7 +4,7 @@ const path = require('path')
 function build(opts = {}) {
   const app = fastify(opts)
   app.decorate('isDev', (string) => [undefined, 'local', 'development'].includes(process.env.NODE_ENV))
-  app.register(require('fastify-swagger'), require('./config/swagger'));
+  app.register(require('fastify-swagger'), require('./config/swagger'))
 
   app.register(require('fastify-cors'))
   app.register(require('fastify-compress'), { global: true })
