@@ -1,4 +1,4 @@
-const S = require('fluent-schema')
+const S = require('fluent-json-schema')
 
 const userBody = S.object()
   .additionalProperties(false)

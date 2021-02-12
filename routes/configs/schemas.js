@@ -1,4 +1,4 @@
-const S = require('fluent-schema')
+const S = require('fluent-json-schema')
 
 const objectIdParamSchema = S.object()
   .additionalProperties(false)
@@ -30,7 +30,7 @@ const postConfigsSchema = {
   tags: ['Configs'],
   body: configBody,
   response: { 200: postConfigs200, 409: defaultError },
-  security: [ { "apiKey": [] } ]
+  security: [ { "bearerAuth": [] } ]
 }
 
 const putConfigsSchema = {
@@ -40,7 +40,7 @@ const putConfigsSchema = {
   params: objectIdParamSchema,
   body: configBody,
   response: { 200: postConfigs200, 409: defaultError },
-  security: [ { "apiKey": [] } ]
+  security: [ { "bearerAuth": [] } ]
 }
 
 const deleteConfigsSchema = {
@@ -51,7 +51,7 @@ const deleteConfigsSchema = {
   response: {
     204: {}
   },
-  security: [ { "apiKey": [] } ]
+  security: [ { "bearerAuth": [] } ]
 }
 
 const getConfigsSchema = {
@@ -70,7 +70,7 @@ const getConfigsSchema = {
     .prop('total', S.number())
     .prop('page', S.number())))
   },
-  security: [ { "apiKey": [] } ]
+  security: [ { "bearerAuth": [] } ]
 }
 
 const getByIdConfigsSchema = {
@@ -79,7 +79,7 @@ const getByIdConfigsSchema = {
   tags: ['Configs'],
   params: objectIdParamSchema,
   response: { 200: getConfigs200 },
-  security: [ { "apiKey": [] } ]
+  security: [ { "bearerAuth": [] } ]
 }
 
 const postLoginSchema = {
