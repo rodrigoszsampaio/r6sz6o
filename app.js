@@ -22,6 +22,8 @@ function build(opts = {}) {
   app.register(require('./routes/users'), { prefix: '/v1' })
   app.register(require('./routes/configs'), { prefix: '/v1' })
 
+  app.post('/webhook', (req, reply) => reply.send('Hello bitches!'))
+
   const fastifyStatic = require('fastify-static')
   app.register(fastifyStatic, { root: path.join(__dirname, 'public'), prefix: '/' })
   app.get('/', { schema: { tags: ['X-HIDDEN'] } }, (req, reply) => reply.sendFile('index.html'))
