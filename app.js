@@ -29,7 +29,7 @@ function build(opts = {}) {
     app.log.info(JSON.stringify(req.params))
     app.log.info('====== QUERY ======')
     app.log.info(JSON.stringify(req.query))
-    reply.send('Hello bitches!')
+    reply.send({ msg: 'Hello bitches!'})
   })
 
   const fastifyStatic = require('fastify-static')
