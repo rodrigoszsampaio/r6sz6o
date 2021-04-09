@@ -22,7 +22,15 @@ function build(opts = {}) {
   app.register(require('./routes/users'), { prefix: '/v1' })
   app.register(require('./routes/configs'), { prefix: '/v1' })
 
-  app.post('/webhook', (req, reply) => reply.send('Hello bitches!'))
+  app.post('/webhook', (req, reply) => {
+    app.log.info('====== BODY ======')
+    app.log.info(JSON.stringify(req.body))
+    app.log.info('====== PARAMS ======')
+    app.log.info(JSON.stringify(req.params))
+    app.log.info('====== QUERY ======')
+    app.log.info(JSON.stringify(req.query))
+    reply.send('Hello bitches!')
+  })
 
   const fastifyStatic = require('fastify-static')
   app.register(fastifyStatic, { root: path.join(__dirname, 'public'), prefix: '/' })
